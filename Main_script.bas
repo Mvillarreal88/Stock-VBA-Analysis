@@ -1,4 +1,3 @@
-Attribute VB_Name = "Module1"
 Sub Ticker()
 
 'Define variables as well as looping through worksheets.
