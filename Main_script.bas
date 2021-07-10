@@ -33,22 +33,22 @@ Endrow = ws.Cells(Rows.Count, "A").End(xlUp).Row
 
 
 'The following will run through each row of the worksheets
-For i = 2 To Endrow
-    Ticker = ws.Cells(i, 1).Value
+For Row = 2 To Endrow
+    Ticker = ws.Cells(Row, 1).Value
     
     If Open_price = 0 Then
-        Open_price = ws.Cells(i, 3).Value
+        Open_price = ws.Cells(Row, 3).Value
     End If
     
-Volume = Volume + ws.Cells(i, 7).Value
+Volume = Volume + ws.Cells(Row, 7).Value
 
 'Checking if the ticker name is different
-If ws.Cells(i + 1, 1).Value <> Ticker Then
+If ws.Cells(Row + 1, 1).Value <> Ticker Then
     
     Ticker_amt = Ticker_amt + 1
     ws.Cells(Ticker_amt + 1, 9) = Ticker
     
-    Close_price = ws.Cells(i, 6).Value
+    Close_price = ws.Cells(Row, 6).Value
     
     Yearly_change = Close_price - Open_price
     
@@ -86,7 +86,7 @@ Close_price = 0
 
 End If
 
-Next i
+Next Row
 Next ws
 
 End Sub
